@@ -1,0 +1,341 @@
+body {
+    margin: 0 0 0 0;
+    padding: 0 0 0 0;
+}
+
+/* Navigation */
+
+.navigationBar {
+    width: 300px;
+    height: 569px;
+    float: left;
+    background-color: silver;
+    background-image: url('nagImg.png');
+    background-repeat: no-repeat;
+}
+
+.HomeButton {
+    margin-top: 50px;
+    width: 300px;
+    height: 70px;
+    background-color: #09DC7C;
+    position:absolute;
+    top: 0;
+    left: 0;
+    justify-content: center;
+    align-items: center;
+    display: flex;
+}
+
+.homeIcon {
+    padding-right: 20px;
+    width: 50px;
+    height: 45px;
+    margin-bottom: 5px;
+}
+
+.loginIcon {
+    padding-right: 20px;
+    width: 50px;
+    height: 45px;
+    margin-bottom: 5px;
+}
+
+.signUpIcon {
+    padding-right: 20px;
+    width: 50px;
+    height: 45px;
+    margin-bottom: 5px;
+}
+
+.LoginButton {
+    margin-top: 150px;
+    width: 300px;
+    height: 70px;
+    background-color: #09DC7C;
+    position:absolute;
+    top: 0;
+    left: 0;
+    justify-content: center;
+    align-items: center;
+    display: flex;
+}
+
+.SignUpButton {
+    margin-top: 250px;
+    width: 300px;
+    height: 70px;
+    background-color: #09DC7C;
+    position:absolute;
+    top: 0;
+    left: 0;
+    justify-content: center;
+    align-items: center;
+    display: flex;
+}
+
+/* Area which is not the navigation bar (for all pages) */
+
+.mainBody {
+    margin-left: 300px;
+    width: 980px;
+    height: 569px;
+    background-image: url('bg.png');
+    background-repeat: no-repeat;
+    position: relative;
+}
+
+.title {
+    margin-left: 550px;
+    margin-top: 20px;
+    width: 500px;
+    height: 100px;
+    background-color: white;
+    position: absolute;
+    top: 0;
+    left: 0;
+    text-align: center;
+    color: red;
+    border-radius: 15px;
+}
+
+/* Home Page CSS */
+
+.search {
+    margin-left: 520px;
+    margin-top: 300px;
+    position:absolute;
+    top: 0;
+    left: 0;
+    display: flex;
+}
+
+.searchButton {
+    margin-top: 300px;
+    margin-left: 900px;
+    width: 120px;
+    height: 70px;
+    background-color: #D98604;
+    position:absolute;
+    top: 0;
+    left: 0;
+    border-radius: 15px;
+}
+
+.searchIcon {
+    width: 50px;
+    height: 45px;
+    margin-bottom: 5px;
+    border-radius: 15px;
+}
+
+.searchDrop {
+    margin-top: 15px;
+    margin-left: 204px;
+    width: 100px;
+    height: 40px;
+    background-color: #C9F007;
+    color: black;
+    position:absolute;
+    top: 0;
+    left: 0;
+}
+
+.instruction {
+    margin-left: 495px;
+    margin-top: 220px;
+    width: 600px;
+    height: 50px;
+    color: white;
+    position:absolute;
+    top: 0;
+    left: 0;
+    text-align: center;
+}
+
+.recom {
+    margin-left: 495px;
+    margin-top: 400px;
+    width: 600px;
+    height: 50px;
+    color: white;
+    position:absolute;
+    top: 0;
+    left: 0;
+    text-align: center;
+}
+
+/* Login/Sign Up page CSS */
+
+.credBox {
+    margin-left: 440px;
+    margin-top: 170px;
+    width: 700px;
+    height: 340px;
+    background-color: #D98604;
+    position:absolute;
+    top: 0;
+    left: 0;
+    border-radius: 15px;
+}
+
+.credBox1 {
+    margin-left: 440px;
+    margin-top: 170px;
+    width: 700px;
+    height: 340px;
+    background-color: #D98604;
+    position:absolute;
+    top: 0;
+    left: 0;
+    border-radius: 15px;
+}
+
+.password {
+    margin-left: 20px;
+    margin-top: 30px;
+    width: 650px;
+    height: 50px;
+    font-size: large;
+    background-color: white;
+    border-radius: 15px;
+}
+
+.name {
+    margin-left: 20px;
+    margin-top: 30px;
+    width: 650px;
+    height: 50px;
+    font-size: large;
+    background-color: white;
+    border-radius: 15px;
+}
+
+.email {
+    margin-left: 20px;
+    margin-top: 20px;
+    width: 650px;
+    height: 50px;
+    font-size: large;
+    background-color: white;
+    border-radius: 15px;
+}
+
+.SignUp1Button {
+    margin-left: 20px;
+    width: 150px;
+    height: 50px;
+    font-size: large;
+    background-color: white;
+    border-radius: 15px;
+}
+
+.AlrLogButton {
+    margin-left: 10px;
+    width: 495px;
+    height: 50px;
+    font-size: large;
+    background-color: white;
+    border-radius: 15px;
+}
+
+/* Chat Window */
+
+.chatWin {
+    margin-left: 395px;
+    margin-top: 150px;
+    width: 800px;
+    height: 400px;
+    background-color: silver;
+    position:absolute;
+    top: 0;
+    left: 0;
+    border-radius: 15px;
+}
+
+.chat {
+    padding-top: 320px;
+    display: flex;
+    align-items: center;
+    width: 100%;
+    height: 80px;
+    overflow: hidden;
+    position: relative;
+    bottom: 0;
+    border: none;
+    background-color: #D98604;
+    border-radius: 15px;
+}
+
+
+
+.chatType {
+    align-items: center;
+    padding-left: 5px;
+    width: 83.75%;
+    height: 70px;
+    margin-bottom: 10px;
+    margin-left: 10px;
+    background-color: white;
+    overflow: hidden;
+    bottom: 0;
+    border: none;
+}
+
+.msgButton {
+    align-items: center;
+    width: 13%;
+    height: 72.5px;
+    background-color: #C9F007;
+    overflow: hidden;
+    bottom: 0;
+    border: none;
+    margin-bottom: 10px;
+}
+
+.sendIcon {
+    width: 50px;
+    height: 45px;
+}
+
+.chatContainer {
+    align-items: center;
+    margin-bottom: 90px;
+    margin-left: 10px;
+    width: 97.5%;
+    height: 300px;
+    background-color: white;
+    overflow: auto;
+    position:absolute;
+    bottom: 0;
+    border: none;
+    border-radius: 15px;
+}
+
+/* message style-da */
+
+.userMessage {
+ background-color: lightblue;
+ max-width: 350px;
+ border-radius: 15px;
+ padding-left: 10px;
+}
+
+.ownMsg {
+    background-color: lightgreen;
+    margin-left: auto;
+    max-width: 350px;
+    border-radius: 15px;
+    padding-left: 10px;
+}
+
+.info {
+font-size: small;
+}
+
+.ownInfo {
+    font-size: small;
+    margin-left: auto;
+    max-width: 200px;
+    text-align: right;
+}

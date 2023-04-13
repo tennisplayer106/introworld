@@ -1,0 +1,111 @@
+<!DOCTYPE html>
+
+<html lang="en">
+
+  <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Sign Up</title>
+    <link rel="stylesheet" href="style.css">
+    
+  </head>
+
+  <body>
+
+<!-- <script type="module" src="index.js"></script> -->
+    <script src="utils.js"></script>
+
+
+
+    <div class="navigationBar"></div>
+    <button onclick="click1()" class="HomeButton"><img src="home.png" class="homeIcon">Home</button>
+    <button onclick="click2()" class="LoginButton"><img src="login.png" class="loginIcon">Login</button>
+    <button onclick="click3()" class="SignUpButton"><img src="sign.png" class="signUpIcon">Sign Up</button>
+
+
+
+    <div class="mainBody"></div>
+
+    <div class="title">
+        <h1>
+       Create an Account!
+        </h1>
+    </div>
+
+  <div class="credBox">
+    <form name="credBox" id="credBox">
+      <input type="text" class="email" id="email" name="email" placeholder="Email (For example: Something@gmail.com)"><br>
+      <input class="name" id="full_name" name="name" placeholder="Name (For example: Vidhman Agarwal)"><br>
+      <input type="password" class="password" id="password" name="password" placeholder="Password (For example: Somebody@12345)"><br><br>
+      <input class="SignUp1Button" type="submit" id="signUp" value="Sign Up!">
+      <input onclick="click2()"class="AlrLogButton" type="submit" value="Have an Account? Login!">
+    </form> 
+  </div>
+
+
+  </body>
+
+  <script type="module">
+// Import the functions you need from the SDKs you need
+import { initializeApp } from "https://www.gstatic.com/firebasejs/9.19.1/firebase-app.js";
+    import { getAuth, createUserWithEmailAndPassword } from "https://www.gstatic.com/firebasejs/9.19.1/firebase-auth.js";
+    import { getDatabase, set, ref } from "https://www.gstatic.com/firebasejs/9.19.1/firebase-database.js";
+// TODO: Add SDKs for Firebase products that you want to use
+// https://firebase.google.com/docs/web/setup#available-libraries
+
+// Your web app's Firebase configuration
+const firebaseConfig = {
+  apiKey: "AIzaSyBnyl9jPpuQkvApbUGpKJtZgGC5wevie4s",
+  authDomain: "introworld-4d656.firebaseapp.com",
+  projectId: "introworld-4d656",
+  storageBucket: "introworld-4d656.appspot.com",
+  messagingSenderId: "255328115086",
+  appId: "1:255328115086:web:7dbd0f683c61eb421cecdf"
+};
+
+var signUp = document.getElementById('signUp')
+
+// Initialize Firebase
+    const app = initializeApp(firebaseConfig);
+    const database = getDatabase(app);
+    const auth = getAuth();
+    console.log('hiiii')
+    signUp.addEventListener('click',(e) => {
+     e.preventDefault()
+
+var email = document.getElementById('email').value;
+var password = document.getElementById('password').value;
+var full_name = document.getElementById('full_name').value;
+sessionStorage.setItem("full_name", full_name);
+
+createUserWithEmailAndPassword(auth, email, password)
+  .then((userCredential) => {
+    console.log('hiii')
+   // Signed in 
+    const user = userCredential.user;
+
+   
+    set(ref(database, 'users/' + user.uid),{
+        full_name: full_name,
+        email: email
+    })
+
+    
+    alert('user created!');
+    window.open( "index.html","_blank");
+  })
+  .catch((error) => {
+    const errorCode = error.code;
+    const errorMessage = error.message;
+
+    alert(errorMessage);
+  // ..
+  });
+
+});
+
+
+  </script>
+
+</html>

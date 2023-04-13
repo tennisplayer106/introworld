@@ -1,0 +1,134 @@
+<!DOCTYPE html>
+
+<html lang="en">
+
+  <head>
+
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Forum - Teen Health</title>
+    <link rel="stylesheet" href="style.css">
+
+  </head>
+
+  <body>
+
+    <style>
+      body {
+        background-image: url('bg.png');
+      }
+      </style>
+
+    <script src="utils.js"></script>
+
+
+
+    <div class="navigationBar"></div>
+    <button onclick="click1()" class="HomeButton"><img src="home.png" class="homeIcon">Home</button>
+    <button onclick="click2()" class="LoginButton"><img src="login.png" class="loginIcon">Login</button>
+    <button onclick="click3()" class="SignUpButton"><img src="sign.png" class="signUpIcon">Sign Up</button>
+
+
+
+    <div class="mainBody"></div>
+
+    <div class="title">
+        <h1>
+            Teen Health
+        </h1>
+    </div>
+
+<div class="chatWin">
+
+<div class="chat">
+  <div id="chatContainer" class="chatContainer"></div>
+  <input class="chatType" type="text" id="msg" placeholder="Enter your Message">
+  <button class="msgButton" id="submit"><img src="send.png" class="sendIcon"></button>
+</div>
+
+</div>
+
+  </body>
+
+  <script type="module">
+
+// Import the functions you need from the SDKs you need
+    import { initializeApp } from "https://www.gstatic.com/firebasejs/9.19.1/firebase-app.js";
+    import { getAuth, createUserWithEmailAndPassword } from "https://www.gstatic.com/firebasejs/9.19.1/firebase-auth.js";
+    import { getDatabase, set, ref, push, child, onValue, onChildAdded } from "https://www.gstatic.com/firebasejs/9.19.1/firebase-database.js";
+// TODO: Add SDKs for Firebase products that you want to use
+// https://firebase.google.com/docs/web/setup#available-libraries
+
+// Your web app's Firebase configuration
+const firebaseConfig = {
+  apiKey: "AIzaSyBnyl9jPpuQkvApbUGpKJtZgGC5wevie4s",
+  authDomain: "introworld-4d656.firebaseapp.com",
+  databaseURL: "https://introworld-4d656-default-rtdb.firebaseio.com",
+  projectId: "introworld-4d656",
+  storageBucket: "introworld-4d656.appspot.com",
+  messagingSenderId: "255328115086",
+  appId: "1:255328115086:web:7dbd0f683c61eb421cecdf"
+};
+
+// Initialize Firebase
+var submit = document.getElementById('submit')
+
+const app = initializeApp(firebaseConfig);
+const database = getDatabase(app);
+sessionStorage.getItem("full_name");
+
+
+
+submit.addEventListener('click', (e)=> {
+    var msg = document.getElementById('msg').value;
+    var name = sessionStorage.getItem('full_name');
+
+    if (name == null){
+          name = "Anonymous";
+        }
+        else{
+          name = name;
+      }
+
+    const id = push(child(ref(database), 'msg')).key;
+    var today = new Date();
+        var date = today.getFullYear()+'-'+(today.getMonth()+1)+'-'+today.getDate();
+        var time = today.getHours() + ":" + today.getMinutes() + ":" + today.getSeconds();
+        var dateTime = date+' '+time;
+
+    set(ref(database, 'message/' + id), {
+      name: name,
+      msg: msg,
+      date: dateTime
+    })
+   
+})
+
+var msgRef = ref(database, 'message')
+onChildAdded(msgRef, (data)=>{
+  createMsg(data.val().msg, data.val().name, data.val().date)
+})
+
+function createMsg(msg, name, date) {
+  var messageSent = document.createElement("p")
+  var nameAndDate = document.createElement("h4")
+  messageSent.innerText = msg
+  nameAndDate.innerText = name + " " + date
+
+  messageSent.classList.add("userMessage")
+  nameAndDate.classList.add("info")
+  document.getElementById("chatContainer").appendChild(nameAndDate)
+  document.getElementById("chatContainer").appendChild(messageSent)
+  
+if (name == sessionStorage.getItem("full_name")) {
+  nameAndDate.innerText = name + " " + "(You)" + " " + date 
+  messageSent.classList.add("ownMsg")
+  nameAndDate.classList.add("ownInfo")
+}
+
+}
+
+  </script>
+
+</html>
